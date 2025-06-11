@@ -1,49 +1,55 @@
 # Disney-Box-Office-Predictions
 
-Summary
-This document outlines a data science project focused on predicting the financial success of Disney films using box office revenue as the primary metric. The project leverages statistical analysis and programming to explore various factors that might influence a film's success.
+Disney Box Office Prediction Analysis
 
-Significant Conclusion and Application to Data Science:
-This project demonstrates the complexity of predictive modeling in real-world scenarios, highlighting the importance of:
-Thorough Data Preparation: Data cleaning and preprocessing (including inflation adjustment) are critical steps that significantly impact model performance.
-Feature Engineering: Creating new features (like dummy variables and interaction terms) can improve model accuracy.
-Model Iteration and Selection: Building and comparing multiple models using techniques like subset selection and ANOVA is essential to find the best fit.
-Understanding Model Limitations: Evaluating model performance metrics (R-squared, residual standard error) and recognizing the limitations of the model are vital.
-Domain Knowledge: Incorporating domain-specific knowledge (e.g., how film release dates and star power might affect success) can enhance analysis and model building.
-In a broader data science context, this project reinforces the idea that prediction is rarely straightforward. Even with advanced techniques, the inherent complexity and variability of real-world data often result in models with imperfect accuracy. This emphasizes the need for careful interpretation, validation, and understanding of the assumptions and limitations of any model. It also showcases the cyclical process of refining and iterating on data and modeling steps to gain the most significant insights and predictive power.
+This project aimed to predict the financial success of Disney films using box office revenue (adjusted for inflation) as the primary metric. Leveraging statistical analysis and programming, I explored various factors influencing a film's success.
 
-Key Points:
-Objective: Predict Disney film box office success based on multiple variables.
-Success Metric: Box office revenue (adjusted for inflation).
+Key Aspects:
 
-Data Sources: "Disney Movies Dataset.csv" and "disney_plus_titles.csv" consolidated into a single dataset.
-Data Cleaning: Extensive cleaning involved handling missing values, removing irrelevant columns, formatting data, splitting release dates, and adjusting financial figures for inflation.
+Objective: To build a predictive model for Disney film box office revenue using various factors.
+Success Metric: Inflation-adjusted box office revenue.
+Data Sources: Consolidated "Disney Movies Dataset.csv" and "disney_plus_titles.csv" (from Kaggle) with an additional "2022_Inflation_Conversion.csv" using CPI data from the U.S. Bureau of Labor Statistics.
 
-Variables: Budget, actors, directors, music composers, critic scores (IMDb, Metascore, Rotten Tomatoes), release date, and ratings were analyzed.
-Inflation Adjustment: Crucial step to normalize financial data across different years using Consumer Price Index data.
-Modeling: Multiple linear regression models were built, including interactions and polynomial terms.
+Data Cleaning (Python):
+Used `pandas` to merge datasets and handle missing values.
+Extracted year and month from release dates using string operations and date/time parsing.
+Formatted categorical data (actors, directors) by extracting the first entry in list strings.
 
-Key Findings/ Results:
-Budget significantly impacts box office revenue.
-Critic scores (Metascore and Rotten Tomatoes) are strong predictors.
-Music producer Hans Zimmer has a notable positive correlation with box office revenue.
-June tends to be the highest grossing month for releases.
+Data Preprocessing (R):
+Used `dplyr` and `tidyr` for further cleaning and restructuring of the data.
+Applied inflation adjustment using a loop to match years and conversion rates.
+Created dummy variables for top actors, directors, and music composers.
+
+Statistical Analysis (R):
+Implemented multiple linear regression models using the `lm()` function.
+Utilized `ANOVA` to compare models and test for significant terms.
+Performed subset selection using `regsubsets()` from the `leaps` package to identify key predictors.
+Identified outliers using `Cook's distance`.
+
+Variables Analyzed: Budget, actors, directors, music composers (especially Hans Zimmer), critic scores (IMDb, Metascore, Rotten Tomatoes), release month (June), and ratings.
+
+Key Findings:
+Budget and critic scores (Metascore, Rotten Tomatoes) significantly predict box office revenue.
+Hans Zimmer's involvement showed a strong positive correlation.
+June releases performed best.
 Ratings were not a significant predictor.
 
-Final Model: Included interaction of inflation budget and Rotten Tomatoes, quadratic of Metascore, cubic of Rotten Tomatoes, and Hans Zimmer.
-Model Limitations: Adjusted R-squared of 0.665 indicates moderate predictive power; high residual standard error suggests room for improvement.
-Conclusion: Predicting film success is complex and involves many variables beyond those analyzed; model provides insights but is not perfect.
+Final Model: Included interaction between inflated budget and Rotten Tomatoes, quadratic of Metascore, cubic of Rotten Tomatoes, and Hans Zimmer as predictors.
+Model Limitations: Adjusted R-squared of 0.665, indicating moderate predictive power. High residual standard error suggests other factors are at play.
 
-Key Resources and Tools Utilized:
-Datasets:
-"Disney Movies Dataset.csv" (Kaggle)
-"disney_plus_titles.csv" (Kaggle)
-"2022_Inflation_Convertion.csv" (Online inflation calculator using CPI data from The U.S. Labor Department's Bureau of Labor Statistics)
-Programming Languages: R and Python were used for data cleaning, manipulation, analysis, and model building.
-Statistical Methods:
-Multiple Linear Regression
-ANOVA (Analysis of Variance)
-Simple Linear Regression
-Subset Selection
-Cook's Distance (for outlier detection)
-Software: R Studio was used for statistical analysis and modeling.
+Conclusion: Predicting film success is complex. While the model offers valuable insights, other variables and external factors likely influence box office revenue.
+
+Tools and Libraries:
+Python: `pandas`
+R: `dplyr`, `tidyr`, `leaps`
+Software: R Studio
+
+
+Statistical Analysis:
+Multiple Linear Regression (MLR): Used to model the relationship between the box office revenue (dependent variable) and multiple predictor variables.
+Simple Linear Regression (SLR): Used to analyze the relationship between two variables at a time, such as budget vs. box office or critic scores vs. box office.
+ANOVA (Analysis of Variance): Used to compare different models and determine if adding or removing variables significantly improved the model fit. Specifically used to test for quadratic terms and interactions between variables.
+Subset Selection: Used to identify the most significant predictors of box office revenue from a larger set of variables. This helped in selecting the initial variables for the regression models.
+Cook's Distance: Used to identify influential outliers that might unduly affect the regression model.
+
+In a broader data science context, this project reinforces the idea that prediction is rarely straightforward. Even with advanced techniques, the inherent complexity and variability of real-world data often result in models with imperfect accuracy. This emphasizes the need for careful interpretation, validation, and understanding of the assumptions and limitations of any model. It also showcases the cyclical process of refining and iterating on data and modeling steps to gain the most significant insights and predictive power.
