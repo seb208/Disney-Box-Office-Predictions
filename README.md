@@ -1,6 +1,6 @@
 # **Disney Box Office Prediction Analysis**
 
-This project aimed to predict the financial success of Disney films using box office revenue (adjusted for inflation) as the primary metric. Leveraging statistical analysis and programming, I explored various factors influencing a film's success.
+This project aimed to predict the financial success of Disney films using box office revenue (adjusted for inflation) as the primary metric. Leveraging statistical analysis and programming, I explored various factors influencing a film's success. Accompanied by full report explanation with conclusion and visual guide.
 
 ---
 
@@ -101,15 +101,9 @@ This project component details a second predictive modeling approach for Disney 
 
 The accompanying visualizations prioritize clarity and accessibility:
 
-* **Distinct Colors**: Seaborn color palettes (e.g., 'viridis', 'cool') ensure strong contrast and differentiation.
+![Image](https://github.com/user-attachments/assets/c4539417-20e1-422d-a358-5989ecdcc468)
 
-* **Clear Labeling**: Axes are explicitly labeled with units, and font sizes are adjusted for readability. Titles are bolded for prominence.
-
-* **Grid Lines**: Subtle grids aid in value interpretation.
-
-* **Legend Placement**: Legends are strategically placed to avoid data overlap.
-
-* **Line Weight**: Key lines, like the "Perfect Prediction Line" and "Zero Residual Line," are thicker and distinct for immediate visual identification.
+![Image](https://github.com/user-attachments/assets/3d9cfcd7-e000-4e7f-8be7-582bab361575)
 
 ---
 
@@ -122,7 +116,10 @@ The accompanying visualizations prioritize clarity and accessibility:
 * **Visual Interpretation**:
 
     * The **Actual vs. Predicted plot** shows a general positive correlation, with some spread around the perfect prediction line, aligning with the R-squared value.
+ 
+![Image](https://github.com/user-attachments/assets/a79ac11c-18d8-4534-86bf-0886b5a35074)
 
     * The **Residual Errors plot** helps identify patterns in the errors, which could suggest areas for model improvement or indicate unmodeled factors.
+<img width="1405" alt="Image" src="https://github.com/user-attachments/assets/dd19e395-f958-48db-b1fe-a11d06a9c978" />
  
   **Note:** The R scripts and related analysis files for this project are stored in the `ANALYSIS_LINEAR_REG` directory within this repository.
