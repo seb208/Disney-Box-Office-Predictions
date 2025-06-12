@@ -1,5 +1,3 @@
-# Disney-Box-Office-Predictions
-
 # **Disney Box Office Prediction Analysis**
 
 This project aimed to predict the financial success of Disney films using box office revenue (adjusted for inflation) as the primary metric. Leveraging statistical analysis and programming, I explored various factors influencing a film's success.
