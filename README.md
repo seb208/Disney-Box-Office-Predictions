@@ -53,3 +53,45 @@ Subset Selection: Used to identify the most significant predictors of box office
 Cook's Distance: Used to identify influential outliers that might unduly affect the regression model.
 
 In a broader data science context, this project reinforces the idea that prediction is rarely straightforward. Even with advanced techniques, the inherent complexity and variability of real-world data often result in models with imperfect accuracy. This emphasizes the need for careful interpretation, validation, and understanding of the assumptions and limitations of any model. It also showcases the cyclical process of refining and iterating on data and modeling steps to gain the most significant insights and predictive power.
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Model 2: Python-based Linear Regression for Box Office Prediction
+This section details a second predictive modeling approach for Disney film box office revenue, implemented in Python. It focuses on a streamlined machine learning workflow, emphasizing robust data preparation and clear visualization of results.
+
+Strategy & Implementation:
+Data Preparation: Loaded the Disney film dataset. Critical numerical columns (Release Year, Budget (float), IMDB score, Metascore, Box office (float)) were converted to numeric types, handling non-numeric entries as missing values (NaN).
+
+Feature Engineering & Handling Missing Values:
+
+Predictors: Release Year, Budget (float), IMDB score, and Metascore were chosen as numerical predictors. Release Month, a categorical feature, was converted using one-hot encoding for model compatibility.
+
+Imputation: Missing numerical values in both features and the target (Box office (float)) were filled using mean imputation, ensuring a complete dataset for the model.
+
+Model Training: A Linear Regression model was selected. Data was split into training (60%) and testing (40%) sets to evaluate performance on unseen data.
+
+Model Evaluation: Performance was assessed using R-squared (Variance Score), an Actual vs. Predicted Plot (comparing forecasts to true values), and a Residual Errors Plot (analyzing prediction differences).
+
+Accessibility & Design (Visualizations):
+The accompanying visualizations prioritize clarity and accessibility:
+
+Distinct Colors: Seaborn color palettes (e.g., 'viridis', 'cool') ensure strong contrast and differentiation.
+
+Clear Labeling: Axes are explicitly labeled with units, and font sizes are adjusted for readability. Titles are bolded for prominence.
+
+Grid Lines: Subtle grids aid in value interpretation.
+
+Legend Placement: Legends are strategically placed to avoid data overlap.
+
+Line Weight: Key lines, like the "Perfect Prediction Line" and "Zero Residual Line," are thicker and distinct for immediate visual identification.
+
+Results:
+Coefficients: The model produced coefficients for each input feature (e.g., Release Year, Budget, IMDB score, Metascore, and each Release Month), indicating their estimated impact on predicted box office revenue.
+
+R-squared (R^2): The model achieved an R-squared score of 0.49. This means roughly 49% of the variability in Disney film box office revenue can be explained by the chosen features.
+
+Visual Interpretation:
+
+The Actual vs. Predicted plot shows a general positive correlation, with some spread around the perfect prediction line, aligning with the R-squared value.
+
+The Residual Errors plot helps identify patterns in the errors, which could suggest areas for model improvement or indicate unmodeled factors.
+
